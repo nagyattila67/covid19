@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="bundle.js"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        <h2>Covid19 információ</h2>
+    </div>
+    <div class="search-bar">
+        <div class="form-container">
+            <form action="" id="form">
+                <div class="select-container form-item"></div>
+                <div class="form-item"><input required type="date" id="date-input"></div>
+                <div class="horizontal-spacer1"></div>
+                <div class="form-item-radio"><input id="inf" checked type="radio" name="covid-radio" id="infections"><label for="infections">betegszámok</label></div>
+                <div class="form-item-radio"><input id="vacc" type="radio" name="covid-radio" id="vaccines"><label for="vactinates">oltottság</label></div>
+                <div class="horizontal-spacer2"></div>
+                <div class="form-item" id="forButton">
+                    <button type="reset" id="reset-button">X</button>
+                    <button type="submit" id="load-button">Keres</button></div>
+            </form>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card-container" id="card-container"></div>
+        <div id="error-message" style="display:none">Hiba történt az adatbetöltés közben</div>
+    </div>
+</body>
+
+</html>
