@@ -2,6 +2,7 @@
 --font-color:#242424;
 --primary-color:#118ee7;
 --primary-light-color:#24d1f0;
+--primary-lighter-color:#adece9;
 --secondary-color:#224403;
 }
 
@@ -14,6 +15,8 @@ body{
 .header > h2{margin:0px}
 
 .search-bar{background-color: var(--primary-light-color)}
+
+#divForCanvas{background-color:var(--primary-lighter-color)}
 
 .form-container > form {display:flex;justify-content:center;align-items:center}
 
@@ -153,4 +156,6 @@ ny92-card h1{
       transform: rotate(360deg);
     }
   }
+
+
   

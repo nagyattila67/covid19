@@ -20,18 +20,25 @@
                 <div class="select-container form-item"></div>
                 <div class="form-item"><input required type="date" id="date-input"></div>
                 <div class="horizontal-spacer1"></div>
-                <div class="form-item-radio"><input id="inf" checked type="radio" name="covid-radio" id="infections"><label for="infections">betegszámok</label></div>
-                <div class="form-item-radio"><input id="vacc" type="radio" name="covid-radio" id="vaccines"><label for="vactinates">oltottság</label></div>
+                <div class="form-item-radio"><input id="inf" checked type="radio" name="covid-radio"
+                        id="infections"><label for="infections">betegszámok</label></div>
+                <div class="form-item-radio"><input id="vacc" type="radio" name="covid-radio" id="vaccines"><label
+                        for="vactinates">oltottság</label></div>
                 <div class="horizontal-spacer2"></div>
                 <div class="form-item" id="forButton">
                     <button type="reset" id="reset-button">X</button>
-                    <button type="submit" id="load-button">Keres</button></div>
+                    <button type="submit" id="load-button">Keres</button>
+                </div>
             </form>
         </div>
     </div>
-    <div class="content">
+    <div class="content" id="content">
         <div class="card-container" id="card-container"></div>
         <div id="error-message" style="display:none">Hiba történt az adatbetöltés közben</div>
+    </div>
+    <div id="divForCanvas">
+        <h2 id="myChartTitle"></h2>
+        <canvas id="myChart"></canvas>
     </div>
 </body>
 

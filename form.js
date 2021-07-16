@@ -1,3 +1,7 @@
+
+
+
+import { myChartFunction } from '/myChart.js';
 import '/styles.css'
 import { countries } from '/select.js'
 import { loadDataInf } from '/load.js'
@@ -36,17 +40,18 @@ export const initForm = () => {
     const loadButton = document.querySelector('#load-button');
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        loadButton.disabled=true;
+        loadButton.disabled = true;
+        const date = document.querySelector("#date-input").value;
+        const country = document.querySelector("#country-select").value;
         cardContainer.insertAdjacentHTML('afterbegin',
-            `<div class='loader' id='loader'></div>`)
+            `<div class='loader' id='loader'></div>`);
         if (document.querySelector("#inf").checked == true) {
-            const date = document.querySelector("#date-input").value;
-            const country = document.querySelector("#country-select").value;
             try {
                 const covidArray = await loadDataInf();
                 console.log("!!", covidArray);
                 addCardInf(country, date, covidArray)
             } catch (e) {
+                console.log(e);
                 errorMessage.style.display = 'block';
                 setTimeout(() => {
                     errorMessage.style.display = 'none'
@@ -54,13 +59,24 @@ export const initForm = () => {
             }
         }
         if (document.querySelector("#vacc").checked == true) {
-            const country = document.querySelector("#country-select").value;
-            const vaccineInfo = await loadDataVacc();
-            console.log(vaccineInfo)
-            addCardVacc(country, vaccineInfo);
+            try {
+                const vaccineInfo = await loadDataVacc();
+                console.log(vaccineInfo)
+                addCardVacc(country, vaccineInfo);
+            } catch (e) {
+                console.log(e);
+                errorMessage.style.display = 'block';
+                setTimeout(() => {
+                    errorMessage.style.display = 'none'
+                }, 4000)
+            }
         }
         cardContainer.removeChild(document.querySelector("#loader"));
-        loadButton.disabled=false;
+        loadButton.disabled = false;
+        myChartFunction();
+        document.querySelector('#myChartTitle').innerHTML = `${country}`;
+
+
     })
 }
 

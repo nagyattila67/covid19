@@ -12,7 +12,7 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                {from: './index.html', to: DIST_DIR}
+                {from: './index.html', to: DIST_DIR},
             ]
         })
     ],
@@ -24,7 +24,7 @@ module.exports = {
               "style-loader",
               "css-loader"
             ]
-          },
+          }
         ]
     },
     devServer: {
