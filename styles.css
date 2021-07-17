@@ -19,17 +19,21 @@ body{
 #divForCanvas{background-color:var(--primary-lighter-color)}
 
 .form-container > form {display:flex;justify-content:center;align-items:center}
+.form-container > p {padding:0 20px;}
 
 .select-container{width:500px;margin-right:20px;padding-left:20px;}
-#country-select{width:100%;flex: 3 1 auto}
+#date-input-second{margin-left:20px}
+.select-container > .country-select{width:100%;flex: 3 1 auto;}
 .horizontal-spacer1{flex: 1 1 auto}
 .horizontal-spacer2{flex:3 1 auto}
 #inf{margin-right:20px;}
-#forButton{margin-right:20px}
+#forButton, #forButtonSecond{margin-right:20px}
 .form-item > input, select, button{line-height:38px; font-size:20px;
 height:42px;margin:5px 0;border-radius:4px;border:none}
-.form-item-radio > label{line-height:38px;font-size:20px;}
-.align-items-radio{display:flex;align-items:center}
+.form-item-radio > label{line-height:38px;font-size:20px;margin-right:20px}
+#date-input, #date-input-second{width:220px}
+align-items > radio{display:flex;align-items:center}
+h4{text-align:center;margin:0;padding:15px;}
 
 button{
   background-color: #45a704;
@@ -85,7 +89,7 @@ ny92-card h1{
   color:red;
 }
 
-#error-message{
+.error-message{
   background-color: #d60e0e;
   text-align: center;
   padding:20px 0;
@@ -157,5 +161,6 @@ ny92-card h1{
     }
   }
 
-
+  #divForCanvasSecond{overflow: scroll;}
+  #myChartSecond{}
   

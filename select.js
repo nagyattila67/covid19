@@ -1,4 +1,4 @@
-export const countries = `<select id="country-select">
+export const countries = `<select class="country-select">
    <option value="Afghanistan">Afghanistan</option>
    <option value="Albania">Albania</option>
    <option value="Algeria">Algeria</option>

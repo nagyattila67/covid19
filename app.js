@@ -1,4 +1,4 @@
 import 'na92-card'
-const { initForm } = require("./form");
+const { initForm, initFormSecond } = require("./form");
 
-window.addEventListener('DOMContentLoaded',()=>{initForm()});
+window.addEventListener('DOMContentLoaded',()=>{initForm();initFormSecond()});
