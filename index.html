@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     <div class="header">
         <h2>Covid19 információ</h2>
     </div>
@@ -30,28 +29,41 @@
                     <button type="submit" id="load-button">Keres</button>
                 </div>
             </form>
+            <div style="text-align: center;padding-bottom:10px"><p><small>Az adatok lekérdezése 30-45 másodpercig is eltarthat! Egyes országokból nincs adat (pl Niger - oltottság), ekkor hibajelzést kaphatunk.</small></p></div>
         </div>
     </div>
-    <div class="content" id="content">
-        <div class="card-container" id="card-container"></div>
-        <div id="error-message" class="error-message" style="display:none">Hiba történt az adatbetöltés közben</div>
+    <div id="egg-container" style="display:none">
+        <div style="display:flex; justify-content: center;">
+            <img src="meme.jpeg" width="400" style="margin:20px 0">
+        </div>
     </div>
-    <div id="divForCanvas">
-        <h2 id="myChartTitle"></h2>
-        <canvas id="myChart"></canvas>
+    <div id="content-container" style="display:block">
+        <div class="content" id="content">
+            <div class="card-container" id="card-container"></div>
+            <div id="error-message" class="error-message" style="display:none">Hiba történt az adatbetöltés közben</div>
+        </div>
+        <div id='border-one'></div>
+        <div id="divForCanvas">
+            <h2 id="myChartTitle"></h2>
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
 
+
+
     <div class="search-bar">
+        <div id='border-second'></div>
         <div class="form-container">
-            <h4>A 'betegszám', 'elhalálozás', 'gyógyulás', 'oltottság' adatok oszlopgrafikonjai a világ összes országai
+            <h4>A 'betegszám', 'elhalálozás', 'gyógyulás', 'oltottság' adatok oszlopgrafikonjai a világ összes
+                országai
                 szerint.</h4>
-            <p><small>Az oszlopgrafikonok magassága a népesség adott százalékát jelöli. A százalékok felfelé vannak
-                    kerekítve egész számra. Azok az országok, amelyek népességéről nincs adat, azok nem szerepelnek az
+            <p><small>Az oszlopgrafikonok magassága a népesség adott százalékát jelöli. Azok az országok, amelyek népességéről nincs adat, azok nem szerepelnek
+                    az
                     oszlopgrafikonon.</small></p>
             <form action="" id="form-second">
                 <div class="form-item"><input type="date" id="date-input-second"></div>
                 <div class="horizontal-spacer1"></div>
-                <div class='form-item-radio'><input type="radio" name='radio-second' id='infectionSecond'>
+                <div class='form-item-radio'><input checked type="radio" name='radio-second' id='infectionSecond'>
                     <label for="infectionSecond">betegszám</label>
                 </div>
                 <div class='form-item-radio'><input type="radio" name='radio-second' id='deathsSecond'>
@@ -60,17 +72,23 @@
                 <div class='form-item-radio'><input type="radio" name='radio-second' id='recoveredSecond'>
                     <label for="recoveredSecond">gyógyulás</label>
                 </div>
+                <div class='form-item-radio'><input type="radio" name='radio-second' id='partiallyVaccinatedSecond'>
+                    <label for="vaccinatedSecond">részl. oltottság</label>
+                </div>
                 <div class='form-item-radio'><input type="radio" name='radio-second' id='vaccinatedSecond'>
-                    <label for="vaccinatedSecond">oltottság</label>
+                    <label for="vaccinatedSecond">teljes oltottság</label>
                 </div>
                 <div class="horizontal-spacer1"></div>
                 <div class="form-item" id="forButtonSecond">
                     <button type="reset" id="reset-button-second">X</button>
                     <button type="submit" id="load-button-second">Keres</button>
                 </div>
-
-
             </form>
+            <div style="text-align: center;"><input checked type="radio" name="size-radio" id="big-size">
+            <label for="big-size">Nagy méretű oszlopgrafikon - az adatok leolvasásához</label>
+            <input type="radio" name="size-radio" id="small-size" style="margin:0 0 20px 20px">
+            <label for="small-size">Kis méretű oszlopgrafikon - az áttekintéshez</label>
+            </div>
         </div>
     </div>
 
@@ -80,8 +98,15 @@
     </div>
     <div id="divForCanvasSecond">
         <h2 id="myChartTitleSecond"></h2>
-        <canvas id="myChartSecond"></canvas>
+        <div id="containerForCanvasSecond">
+            <canvas id="myChartSecond"></canvas>
+        </div>
+
     </div>
+    <div id="egg">
+        <p><small>@Én kínai vakcinát kaptam, nem volt különösebb mellékhatása, csak 我几天晚上发过轻烧。</small></p>
+    </div>
+
 </body>
 
 </html>

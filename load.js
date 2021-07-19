@@ -5,7 +5,6 @@ const loadInfo = async (country, status) => {
     const response = await fetch(`https://covid-api.mmediagroup.fr/v1/history?country=${country}&status=${status}`)
     if (response.status !== 200) { throw `Error loading ${status}-info` }
     const jsonResponse = await response.json();
-    console.log(status, country, jsonResponse);
     return jsonResponse;
 }
 
@@ -28,7 +27,6 @@ export const loadDataVacc = async () => {
         const response = await fetch(`https://covid-api.mmediagroup.fr/v1/vaccines?country=${country}`)
         if (response.status !== 200) { throw 'Error loading vaccines-data' }
         const jsonResponse = await response.json();
-        console.log(status, country, jsonResponse);
         return jsonResponse;
     } catch (e) {
         console.log('Error loading dataVacc')

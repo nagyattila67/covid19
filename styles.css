@@ -9,6 +9,7 @@
 body{
     font-family: var(--font-color);
     margin:0;
+    background-color:var(--primary-lighter-color)
 }
 
 .header{background-color: var(--primary-color);margin:0;padding:10px 26px;}
@@ -16,7 +17,7 @@ body{
 
 .search-bar{background-color: var(--primary-light-color)}
 
-#divForCanvas{background-color:var(--primary-lighter-color)}
+#divForCanvas{background-color:var(--primary-lighter-color);padding:0 10px}
 
 .form-container > form {display:flex;justify-content:center;align-items:center}
 .form-container > p {padding:0 20px;}
@@ -32,7 +33,7 @@ body{
 height:42px;margin:5px 0;border-radius:4px;border:none}
 .form-item-radio > label{line-height:38px;font-size:20px;margin-right:20px}
 #date-input, #date-input-second{width:220px}
-align-items > radio{display:flex;align-items:center}
+.form-item-radio > radio{display:flex;align-items:center}
 h4{text-align:center;margin:0;padding:15px;}
 
 button{
@@ -117,6 +118,7 @@ ny92-card h1{
     -ms-transform: translateZ(0);
     transform: translateZ(0);
   }
+
   .loader:before {
     width: 50%;
     height: 50%;
@@ -140,6 +142,52 @@ ny92-card h1{
     bottom: 0;
     right: 0;
   }
+
+  .loader2 {
+    font-size: 10px;
+    margin: 50px auto;
+    text-indent: -9999em;
+    width: 11em;
+    height: 11em;
+    border-radius: 50%;
+    background: var(--primary-lighter-color);
+    background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+    position: relative;
+    -webkit-animation: load3 1.4s infinite linear;
+    animation: load3 1.4s infinite linear;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .loader2:before {
+    width: 50%;
+    height: 50%;
+    background: var(--primary-lighter-color);
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+  .loader2:after {
+    background: var(--primary-lighter-color);
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
   @-webkit-keyframes load3 {
     0% {
       -webkit-transform: rotate(0deg);
@@ -161,6 +209,11 @@ ny92-card h1{
     }
   }
 
-  #divForCanvasSecond{overflow: scroll;}
-  #myChartSecond{}
+  #egg{background-color:var(--primary-lighter-color);
+  text-align: right; padding-right:60px;}
+
+  #divForCanvasSecond{overflow: scroll;background-color:var(--primary-lighter-color);padding:0 10px}
+  #containerForCanvasSecond{max-height:400px;width:5000px;}
+
+  #myChart{max-height:400px}
   

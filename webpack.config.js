@@ -13,16 +13,19 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {from: './index.html', to: DIST_DIR},
+                {from: './img/meme.jpeg', to: DIST_DIR},
             ]
         })
     ],
     module: {
         rules: [
           {
-            test: /\.css$/i,
+            //test: /\.css$/i,
+            test: /\.s[ac]ss$/i,
             use: [
               "style-loader",
-              "css-loader"
+              "css-loader",
+              "sass-loader"
             ]
           }
         ]

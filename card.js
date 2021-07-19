@@ -17,7 +17,6 @@ export const addCardInf = (country, date, covidArray) => {
     const cardContainer = document.querySelector("#card-container");
     console.log("country", country);
     console.log("date", `${date}`)
-    console.log("www", covidArray[0].All.dates[`${date}`])
     const confirmed = covidArray[0].All.dates[`${date}`]
     const deaths = covidArray[1].All.dates[`${date}`]
     const recovered = covidArray[2].All.dates[`${date}`];
@@ -57,7 +56,6 @@ export const addCardVacc = (country, vaccineInfo) => {
     const population = vaccineInfo.All.population;
     const percentage1 = (partiallyVaccinated * 100 / population).toFixed(1);
     const percentage2 = (vaccinated * 100 / population).toFixed(1);
-    console.log("percentage", percentage1)
 
     cardContainer.insertAdjacentHTML('afterbegin', `<na92-card title='${country}' id='card${id_Vacc}'
     style='background-color:#ffd2da'>
@@ -98,8 +96,6 @@ const configCanvasData = async () => {
    
         myChartFunction();
         document.querySelector('#myChartTitle').innerHTML = `${myCountry}`;
-        //window.scrollTo(0, document.querySelector('body').scrollHeight);
-   
 }
 
 export const selectDataType = () => {
@@ -112,10 +108,9 @@ export const selectDataType = () => {
     if (document.querySelector('#recovered-canvas').checked == true) {
         myIndex = 2;
     }
-    console.log("myIndex", myIndex)
     configCanvasData();
     myChartFunction();
     document.querySelector('#myChartTitle').innerHTML = `${myCountry}`;
-    window.scrollTo(0, document.querySelector('body').scrollHeight);
+    document.querySelector('#border-one').scrollIntoView('top')
 }
 

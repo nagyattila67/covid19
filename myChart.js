@@ -26,6 +26,7 @@ import {
     Title,
     Tooltip
 } from 'chart.js';
+import { AnimationFrameScheduler } from 'rxjs/internal/scheduler/AnimationFrameScheduler';
 
 Chart.register(
     ArcElement,
@@ -60,7 +61,6 @@ export const myChartFunction = () => {
     clearCanvas();
 
     const labels = chartLabels.slice();
-    //console.log('szia',covidArray);
     const data = {
         labels: labels,
         datasets: [{
@@ -94,7 +94,7 @@ export const clearCanvas = () => {
     }
 
     place.insertAdjacentHTML('afterbegin', `
-    <div style="display:flex; flex-direction:row; align-items:center; gap:10px;";>
+    <div id="divForCanvas" style="display:flex; flex-direction:row; align-items:center; gap:10px;";>
     <h2 id="myChartTitle"></h2>
     <div>
     <input ${myIndex == 0 ? 'checked' : ''}
@@ -124,15 +124,50 @@ export const clearCanvas = () => {
 
 }
 
-export const myChartFunction2 = (myLabels,myData) => {
+export const clearCanvas2 = (myHeight, myWidth) => {
+    const place = document.querySelector('#containerForCanvasSecond');
+    place.innerHTML = "";
+    place.insertAdjacentHTML('afterbegin', `
+    <canvas id="myChartSecond" height="${myHeight}" width="${myWidth}"></canvas>
+    `)
+}
 
+export const myChartFunction2 = (myLabels, myData, myDate) => {
+
+    const actions = [
+        {
+            name: 'Title Position: start',
+            handler(chart) {
+                chart.options.plugins.legend.align = 'start';
+                chart.options.plugins.legend.title.position = 'start';
+                chart.update();
+            }
+        },
+        {
+            name: 'Title Position: center (default)',
+            handler(chart) {
+                chart.options.plugins.legend.align = 'center';
+                chart.options.plugins.legend.title.position = 'center';
+                chart.update();
+            }
+        },
+        {
+            name: 'Title Position: end',
+            handler(chart) {
+                chart.options.plugins.legend.align = 'end';
+                chart.options.plugins.legend.title.position = 'end';
+                chart.update();
+            }
+        },
+    ];
 
     const labels = myLabels;
+    const date = myDate;
 
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Én kínai vakcinát kaptam, nem volt komolyabb mellékhatása, csak 我发烧了几天',
+            label: `frissítve: ${date}`,
             data: myData,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -153,6 +188,9 @@ export const myChartFunction2 = (myLabels,myData) => {
                 'rgb(201, 203, 207)'
             ],
             borderWidth: 1,
+            barThickness: 'flex',
+            scaleSteps: 1,
+            scaleStepWidth: 100,
         }]
     };
 
@@ -160,9 +198,18 @@ export const myChartFunction2 = (myLabels,myData) => {
         type: 'bar',
         data: data,
         options: {
+            plugins: {
+                legend: {
+                    title: {
+                        display: true,
+                        //text: 'Legend Title',
+                    },
+                    align: 'start',
+                }
+            },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
                 }
             }
         },
